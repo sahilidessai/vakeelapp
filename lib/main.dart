@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Advocate Sign Up',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Advocate Sign Up'),
@@ -43,96 +43,139 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController numberController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Padding(
-            padding: EdgeInsets.all(30),
-            child: ListView(
-              children: <Widget>[
-                Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Sign up to get started',
-                      style: TextStyle(fontSize: 20),
-                    )),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
-                    controller: nameController,
-                    decoration: InputDecoration(
-                      labelText: 'User Name',
-                      prefixIcon: Icon(Icons.person),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      prefixIcon: Icon(Icons.email),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextField(
-                    obscureText: true,
-                    controller: passwordController,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
-                      labelText: 'Password',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  child: TextField(
-                    controller: numberController,
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.phone),
-                        labelText: 'Phone Number'),
-                  ),
-                ),
-                Container(
-                    height: 50,
-                    alignment: Alignment.centerRight,
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Colors.blue,
-                      child: Text('Sign Up'),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: BorderSide(color: Colors.red)),
-                      onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
-                      },
-                    )),
-                Container(
-                    child: Row(
+    return MaterialApp(
+        home: new Scaffold(
+            backgroundColor: Colors.yellow,
+            appBar: AppBar(
+              title: Text(widget.title),
+            ),
+            body: Padding(
+                padding: EdgeInsets.all(30),
+                child: ListView(
                   children: <Widget>[
-                    Text('Already have an account?'),
-                    FlatButton(
-                      textColor: Colors.blue,
-                      child: Text(
-                        'Sign in',
-                        style: TextStyle(fontSize: 20),
+                    Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          'Sign up to get started',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        )),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      child: TextField(
+                        controller: nameController,
+                        decoration: InputDecoration(
+                          labelText: 'User Name',
+                          prefixIcon: Icon(
+                            Icons.person,
+                            color: Colors.white,
+                          ),
+                          labelStyle: TextStyle(color: Colors.white),
+                        ),
                       ),
-                      onPressed: () {
-                        //signup screen
-                      },
-                    )
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      child: TextField(
+                        controller: emailController,
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                          labelStyle: TextStyle(color: Colors.white),
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                      child: TextField(
+                        obscureText: true,
+                        controller: passwordController,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Colors.white,
+                          ),
+                          labelText: 'Password',
+                          labelStyle: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                      child: TextField(
+                        controller: numberController,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.phone,
+                            color: Colors.white,
+                          ),
+                          labelText: 'Phone Number',
+                          labelStyle: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    Container(
+                        height: 50,
+                        alignment: Alignment.centerRight,
+                        child: RaisedButton(
+                          textColor: Colors.white,
+                          color: Colors.yellow[800],
+                          child: Text('Sign Up'),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.yellow)),
+                          onPressed: () {
+                            print(nameController.text);
+                            print(passwordController.text);
+                          },
+                        )),
+                    Container(
+                      child: Row(
+                        children: <Widget>[
+                          Text('Already have an account?'),
+                          FlatButton(
+                            textColor: Colors.yellow,
+                            child: Text(
+                              'Sign in',
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
+                            ),
+                            onPressed: () {
+                              //signin screen
+                            },
+                          )
+                        ],
+                        mainAxisAlignment: MainAxisAlignment.center,
+                      ),
+                    ),
+                    Row(children: <Widget>[
+                      Expanded(
+                        child: new Container(
+                            margin:
+                                const EdgeInsets.only(left: 10.0, right: 20.0),
+                            child: Divider(
+                              color: Colors.white,
+                              height: 100,
+                            )),
+                      ),
+                      Text("OR SIGN UP WITH"),
+                      Expanded(
+                        child: new Container(
+                            margin:
+                                const EdgeInsets.only(left: 20.0, right: 10.0),
+                            child: Divider(
+                              color: Colors.white,
+                              height: 100,
+                            )),
+                      )
+                    ]),
                   ],
-                  mainAxisAlignment: MainAxisAlignment.center,
-                ))
-              ],
-            )));
+                ))));
   }
 }
